@@ -40,6 +40,12 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- Run terminal in a split view
 vim.keymap.set("n", "<leader>m", [[:vnew<Enter>:terminal ]], opts)
+vim.keymap.set("n", "<leader>r", function()
+	local file_path = vim.fn.expand "%:p"
+	local file_dir = vim.fn.expand "%:p:h"
+	vim.cmd "vnew"
+	vim.cmd("terminal cd " .. file_dir .. " && python3 " .. file_path)
+end, opts)
 
 -- Window management
 vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window in vertical position
