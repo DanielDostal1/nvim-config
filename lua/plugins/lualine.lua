@@ -9,10 +9,39 @@ return {
 			end,
 		}
 
+		--		local filename = {
+		--			"filename",
+		--			file_status = true, -- displays file status (readonly status, modified status)
+		--			path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+		--		}
+
 		local filename = {
-			"filename",
-			file_status = true, -- displays file status (readonly status, modified status)
-			path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+			function()
+				local bufname = vim.api.nvim_buf_get_name(0)
+
+				-- Check if it's an oil.nvim buffer
+				if bufname:match "^oil://" then
+					-- Remove the oil:// prefix
+					local absolute_path = bufname:gsub("^oil://", "")
+
+					-- Get the current working directory
+					local cwd = vim.loop.cwd()
+
+					-- Compute the relative path
+					local relative_path = vim.fn.fnamemodify(absolute_path, ":.")
+
+					-- Ensure the path is relative to cwd
+					if absolute_path:sub(1, #cwd) == cwd then
+						return absolute_path:sub(#cwd + 2) .. "/"
+					else
+						return relative_path .. "/"
+					end
+				else
+					-- For regular files, use the relative path
+					return vim.fn.fnamemodify(bufname, ":~:.")
+				end
+			end,
+			file_status = true, -- Displays file status (readonly, modified)
 		}
 
 		local hide_in_width = function() return vim.fn.winwidth(0) > 100 end
