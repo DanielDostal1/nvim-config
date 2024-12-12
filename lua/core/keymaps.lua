@@ -6,6 +6,10 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set("n", "qq", ":q<CR>", opts)
+vim.keymap.set("n", "ww", ":w<CR>", opts)
+vim.keymap.set("n", "wa", ":wa<CR>", opts)
+
 -- Move selected lines (even adds tabs, opts)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
@@ -40,7 +44,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- Run terminal in a split view
 vim.keymap.set("n", "<leader>m", [[:vnew<Enter>:terminal ]], opts)
-vim.keymap.set("n", "<leader>r", function()
+vim.keymap.set("n", "<leader>rp", function() -- Run Python
 	local file_path = vim.fn.expand "%:p"
 	local file_dir = vim.fn.expand "%:p:h"
 	vim.cmd "vnew"
