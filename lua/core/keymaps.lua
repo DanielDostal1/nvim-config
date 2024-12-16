@@ -50,6 +50,12 @@ vim.keymap.set("n", "<leader>rp", function() -- Run Python
 	vim.cmd "vnew"
 	vim.cmd("terminal cd " .. file_dir .. " && python3 " .. file_path)
 end, opts)
+vim.keymap.set("n", "<leader>rj", function() -- Run Node
+	local file_path = vim.fn.expand "%:p"
+	local file_dir = vim.fn.expand "%:p:h"
+	vim.cmd "vnew"
+	vim.cmd("terminal cd " .. file_dir .. " && node " .. file_path)
+end, opts)
 
 -- Window management
 vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window in vertical position
