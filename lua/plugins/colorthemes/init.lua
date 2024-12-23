@@ -24,9 +24,9 @@ end
 -- Theme plugin definitions
 M.plugins = {
 	require "plugins.colorthemes.rose-pine",
-	--	require "plugins.colorthemes.tokyonight", Does not work
+	require "plugins.colorthemes.onedark",
 	require "plugins.colorthemes.nightfox",
-	require "plugins.colorthemes.gruvbox",
+	require "plugins.colorthemes.catppuccin",
 }
 
 -- Theme toggling logic
@@ -41,7 +41,7 @@ M.setup = function()
 
 	-- Keymap for toggling themes
 	vim.keymap.set("n", "<leader>tt", function()
-		local themes = { "rose-pine", "nightfox", "gruvbox" }
+		local themes = { "rose-pine", "onedark", "nightfox", "catppuccin" }
 		local current = vim.g.colors_name
 		local next = themes[((vim.fn.index(themes, current) or 0) + 1) % #themes + 1]
 
