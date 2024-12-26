@@ -3,6 +3,8 @@ vim.g.mapleader = " "
 
 -- Disable the spacebar key"s default behaviour in Normal and Visual mode
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+-- Disable <C-M> as enter
+vim.keymap.set("n", "<C-M>", "<Nop>", { noremap = true, silent = true })
 
 local opts = { noremap = true, silent = true }
 
