@@ -11,11 +11,12 @@ return {
 					["g?"] = { "actions.show_help", mode = "n" },
 					["<CR>"] = "actions.select",
 					["<C-s>"] = { "actions.select", opts = { vertical = true } },
-					["<C-h>"] = false,
+					["<C-h>"] = false, -- Harpoon remap
 					["<C-t>"] = { "actions.select", opts = { tab = true } },
 					["<C-p>"] = "actions.preview",
 					["<C-c>"] = { "actions.close", mode = "n" },
-					["<C-l>"] = "actions.refresh",
+					-- ["<C-l>"] = "actions.refresh",
+					["<C-l>"] = false, -- Harpoon remap
 					["-"] = { "actions.parent", mode = "n" },
 					["_"] = { "actions.open_cwd", mode = "n" },
 					["`"] = { "actions.cd", mode = "n" },
