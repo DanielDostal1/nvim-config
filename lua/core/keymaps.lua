@@ -8,9 +8,9 @@ vim.keymap.set("n", "<C-M>", "<Nop>", { noremap = true, silent = true })
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "qq", ":q<CR>", opts)
-vim.keymap.set("n", "ww", ":w<CR>", opts)
-vim.keymap.set("n", "wa", ":wa<CR>", opts)
+-- vim.keymap.set("n", "qq", ":q<CR>", opts)
+-- vim.keymap.set("n", "ww", ":w<CR>", opts)
+-- vim.keymap.set("n", "wa", ":wa<CR>", opts)
 
 -- Move selected lines (even adds tabs, opts)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
