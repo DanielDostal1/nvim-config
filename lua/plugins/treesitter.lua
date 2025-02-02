@@ -6,7 +6,7 @@ return {
 	opts = {
 		ensure_installed = {
 			"lua",
-			"python",
+			-- "python",
 			"javascript",
 			"typescript",
 			"vimdoc",

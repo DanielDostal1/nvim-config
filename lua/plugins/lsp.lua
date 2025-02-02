@@ -197,8 +197,8 @@ return {
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- ts_ls = {}, -- typescript_tools replaces this
-				ruff = {},
-				pylsp = {
+				-- ruff = {},
+				--[[ pylsp = {
 					settings = {
 						pylsp = {
 							plugins = {
@@ -213,7 +213,7 @@ return {
 							},
 						},
 					},
-				},
+				}, ]]
 				html = { filetypes = { "html", "twig", "hbs" } },
 				cssls = {},
 				tailwindcss = {},
