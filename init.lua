@@ -32,6 +32,7 @@ require("lazy").setup {
   require "plugins.treesitter",
   require "plugins.typescript-tools",
   require "plugins.undotree",
+  require "plugins.mini-ai",
 
   -- TODO: tmux
   -- TODO: overseer
